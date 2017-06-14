@@ -1,0 +1,38 @@
+<!--
+  Generated template for the CompanyAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}} Empresa</ion-title>
+    <ion-buttons end>
+      <button (click)="save()"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="company-add">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="companyItem.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>CNPJ</ion-label>
+      <ion-input type="text" [(ngModel)]="companyItem.cnpj"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Contato</ion-label>
+      <ion-input type="text" [(ngModel)]="companyItem.contact"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Telefone</ion-label>
+      <ion-input type="text" [(ngModel)]="companyItem.phone"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

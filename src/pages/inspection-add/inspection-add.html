@@ -1,0 +1,34 @@
+<!--
+  Generated template for the InspectionAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}} Inspeção</ion-title>
+    <ion-buttons end>
+      <button (click)="save()"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+    <ion-item>
+      <ion-label floating>Severidade</ion-label>
+      <ion-input type="text" [(ngModel)]="inspectionItem.severity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="inspectionItem.description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Tipo</ion-label>
+      <ion-input type="text" [(ngModel)]="inspectionItem.kind"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

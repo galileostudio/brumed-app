@@ -1,0 +1,37 @@
+<!--
+  Generated template for the InspectionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Inspeção</ion-title>
+    <ion-buttons end>
+      <button (click)="add()"><ion-icon name="add"></ion-icon></button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="inspection-list">
+  <ion-list>
+    <ion-item-sliding *ngFor="let inspection of inspectionList; let idx = index;"> 
+      <ion-item>
+        <h2>{{ inspection.description }}</h2>
+        <h3>{{ inspection.created_at }}</h3>
+      </ion-item>
+      <ion-item-options>
+        <button danger (click)="edit(idx)">
+          <ion-icon name="trash"></ion-icon>
+            Editar
+          </button>
+          <button danger (click)="delete(idx)">
+          <ion-icon name="trash"></ion-icon>
+            Apagar
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
