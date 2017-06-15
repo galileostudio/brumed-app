@@ -10,7 +10,7 @@
     <ion-title>Inspeção</ion-title>
     <ion-buttons end>
       <button (click)="add()"><ion-icon name="add"></ion-icon></button>
-  </ion-buttons>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -18,8 +18,8 @@
 <ion-content class="inspection-list">
   <ion-list>
     <ion-item-sliding *ngFor="let inspection of inspectionList; let idx = index;"> 
-      <ion-item>
-        <h2>{{ inspection.description }}</h2>
+      <ion-item (click)="itemTapped($event, idx)">
+        <h2>{{ inspection.name }}</h2>
         <h3>{{ inspection.created_at }}</h3>
       </ion-item>
       <ion-item-options>

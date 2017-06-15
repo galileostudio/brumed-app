@@ -14,17 +14,17 @@
     <ion-buttons end>
       <button (click)="add()"><ion-icon name="add"></ion-icon></button>
     </ion-buttons>
-    <!--<ion-buttons end>
+    <ion-buttons end>
       <button (click)="clear()"><ion-icon name="remove"></ion-icon></button>
-    </ion-buttons>-->
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content class="company">
   <ion-list>
-    <ion-item-sliding *ngFor="let company of companyList; let idx = index;" (click)="itemTapped($event, idx)"> 
-      <ion-item>
+    <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
+      <ion-item (click)="itemTapped($event, idx)">
         <h2>{{ company.name }}</h2>
         <h3>{{ company.phone }}</h3>
       </ion-item>

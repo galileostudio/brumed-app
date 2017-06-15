@@ -47,7 +47,7 @@ export class CompanyPage {
 
   itemTapped(event, idx: number) {
     this.navCtrl.push(InspectionPage, {
-      index: idx
+      company_id: this.companyList[idx].id
     });
   } 
 }

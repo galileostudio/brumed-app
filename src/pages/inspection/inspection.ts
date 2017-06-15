@@ -1,3 +1,4 @@
+import { OccurrencePage } from './../occurrence/occurrence';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InspectionModel } from './../../models/inspection';
@@ -15,32 +16,43 @@ import { InspectionAddPage } from './../inspection-add/inspection-add';
 })
 export class InspectionPage {
   public inspectionList: Array<InspectionModel>;
-  public index: number;
+  public company_id: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.index = navParams.get("index");
+    this.company_id = navParams.get("company_id");
   }
 
   ionViewDidEnter() {
-    this.inspectionList = JSON.parse(localStorage.getItem("inspection"));
+    if(JSON.parse(localStorage.getItem("inspection"))){
+      this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
+        inspection => inspection.company_id === this.company_id);
+    }
     if(!this.inspectionList) {
       this.inspectionList = [];
     }
   }
 
   add(){
-    this.navCtrl.push(InspectionAddPage);
+    this.navCtrl.push(InspectionAddPage, {
+      company_id: this.company_id
+    });
   }
 
   edit(index: number){
      this.navCtrl.push(InspectionAddPage, {
-      index: index
+      index: index,
+      company_id: this.company_id
     });
   }
 
   delete(index: number){
     this.inspectionList.splice(index, 1); 
     localStorage.setItem("inspection", JSON.stringify(this.inspectionList)); 
+  }
+  itemTapped(event, idx:number){
+    this.navCtrl.push(OccurrencePage, {
+      inspection_id: this.inspectionList[idx].id
+    });
   }
 
 }

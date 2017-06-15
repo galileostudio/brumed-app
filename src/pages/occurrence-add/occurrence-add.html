@@ -1,5 +1,5 @@
 <!--
-  Generated template for the InspectionAddPage page.
+  Generated template for the OccurrenceAddPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{title}} Inspeção</ion-title>
+    <ion-title>occurrence-add</ion-title>
     <ion-buttons end>
       <button (click)="save()"><ion-icon name="checkmark"></ion-icon></button>
     </ion-buttons>
@@ -17,10 +17,8 @@
 
 
 <ion-content padding>
-<ion-list>
-    <ion-item>
+  <ion-item>
       <ion-label floating>Descrição</ion-label>
-      <ion-input type="text" [(ngModel)]="inspectionItem.name"></ion-input>
+      <ion-input type="text" [(ngModel)]="occurrenceItem.description"></ion-input>
     </ion-item>
-  </ion-list>
 </ion-content>

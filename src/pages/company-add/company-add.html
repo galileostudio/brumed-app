@@ -20,19 +20,19 @@
   <ion-list>
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="companyItem.name"></ion-input>
+      <ion-input type="text" name="nome" [(ngModel)]="companyItem.name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>CNPJ</ion-label>
-      <ion-input type="text" [(ngModel)]="companyItem.cnpj"></ion-input>
+      <ion-input type="tel" name="cnpj" [brmasker]="{mask:'00.000.000/0000-00', len:18}" [(ngModel)]="companyItem.cnpj"></ion-input>
     </ion-item>
      <ion-item>
       <ion-label floating>Contato</ion-label>
-      <ion-input type="text" [(ngModel)]="companyItem.contact"></ion-input>
+      <ion-input type="text" name="contato" [(ngModel)]="companyItem.contact"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Telefone</ion-label>
-      <ion-input type="text" [(ngModel)]="companyItem.phone"></ion-input>
+      <ion-input type="tel" name="telefone" [brmasker]="{mask:'(00) 0000-0000', len:14}" [(ngModel)]="companyItem.phone"></ion-input>
     </ion-item>
   </ion-list>
 </ion-content>

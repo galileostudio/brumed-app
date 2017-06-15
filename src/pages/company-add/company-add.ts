@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CompanyModel } from './../../models/company'
+import { CompanyModel } from './../../models/company';
 /**
  * Generated class for the CompanyAddPage page.
  *
