@@ -23,7 +23,7 @@
       <ion-input type="text" [(ngModel)]="occurrenceItem.description" [readonly]="!edit"></ion-input>
     </ion-item>
     <ion-card-content>
-      <img [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'"
+      <img class="img" width="150" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'"
       (click)="changePicture()"/>
       <button ion-button color="danger" (click)="changePicture()" [hidden]="!edit">Capturar Imagem</button>
     </ion-card-content>
