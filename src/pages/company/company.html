@@ -22,25 +22,26 @@
   </ion-toolbar>
 
 </ion-header>
-
 <ion-content class="company">
   <ion-list>    
     <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
       <ion-item (click)="itemTapped($event, idx)">
-      <i id="erro" class="ion-android-alert"></i>
+      <ion-avatar item-left>
+          <img />
+      </ion-avatar>
         <h2>{{ company.name }}</h2>
         <h3>{{ company.phone }}</h3>  
         <i id="seta-dir" class="ion-ios-arrow-right"></i>      
       </ion-item>
       <ion-item-options>
         <button danger (click)="edit(idx)">
-          <ion-icon name="trash"></ion-icon>
+          <ion-icon name="md-create"></ion-icon>
             Editar
           </button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
     <ion-fab bottom right>
-      <button ion-fab (click)="add()" color="danger"><i class="ion-plus-round"></i></button>
+      <button ion-fab (click)="add()" color="salvar"><i class="ion-plus-round"></i></button>
     </ion-fab>
 </ion-content>
