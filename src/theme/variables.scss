@@ -28,9 +28,13 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  salvar:     #fb913b,
+  edit:		  #08A17D
+	         
 );
 $toolbar-background: #08A17D;
+
 
 // App iOS Variables
 // --------------------------------------------------
@@ -71,7 +75,7 @@ $toolbar-background: #08A17D;
 @import "ionic.ionicons";
 
 
-@import '../icons/ionicons';
+
 
 
 // Fonts
