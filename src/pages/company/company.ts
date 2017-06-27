@@ -21,6 +21,7 @@ export class CompanyPage {
   @ViewChild(List) list: List;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.companyList = [];
   }
 
   ionViewDidEnter(){

@@ -23,7 +23,13 @@
 
 </ion-header>
 <ion-content class="company">
-  <ion-list>    
+  <!-- Quando a lista está vazia deve-se exibir isso daqui -->
+  <ion-item [hidden]="companyList.length">
+    Não há resultados
+  </ion-item>
+
+  <!-- Quando existem itens na lista deve-se exibir isso aqui -->
+  <ion-list [hidden]="!companyList.length">
     <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
       <ion-item (click)="itemTapped($event, idx)">
       <ion-avatar item-left>
