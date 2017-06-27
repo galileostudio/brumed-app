@@ -8,10 +8,10 @@
   <expandable-header [scrollArea]="myContent" headerHeight="168" class="ex-header">
     <button (click)="back()">voltar</button>
     <ion-label text-center>{{company.name}}</ion-label>
-    <ion-label class="info">CNPJ: {{company.cnpj}}</ion-label>
-    <ion-label class="info">{{company.address}}</ion-label>
-    <ion-label class="info">{{company.phone}}</ion-label>
-    <ion-label class="info">{{company.contact}}</ion-label>
+    <ion-label text-center class="info">CNPJ: {{company.cnpj}}</ion-label>
+    <ion-label text-center class="info">{{company.address}}</ion-label>
+    <ion-label text-center class="info">{{company.phone}}</ion-label>
+    <ion-label text-center class="info">{{company.contact}}</ion-label>
     <button (click)="edit()" end>editar</button>
   </expandable-header>
 </ion-header>
