@@ -12,11 +12,48 @@
 			}
 	}
 	.info{
-		margin: 0;
-		padding: 0;
+		
+		font-weight: bold;
+		color: #ffff;
+
+
 	}
 	.ex-header{
 		padding: 4px;
 		background-color: #08A17D;
+		font-weight: 600;
+	}
+	.ex-header ion-icon{
+		color: #fff;
+	}
+	.ex-header ion-label{
+		color: #fff;
+		margin: 0;
+		padding: 0;
+
+	}
+	.btn-edit{
+		float: right;
+	}
+	.btn-editar{
+		background-color: #08a17d;
+		color: white;
+		font-family: roboto;
+	}
+	.contato{
+		display: flex;		
+  		margin: auto;
+  		justify-content: center;
+  		padding-left: auto;
+
+	}
+	.contato .contact{
+		padding-left: 5px;
+		margin: auto;
+		width: 50%;
+	}
+	.contato .phone{
+		width: 100%;
 	}
 }
+
