@@ -14,12 +14,10 @@
 
 
 <ion-content padding>
-<ion-list>
     <ion-item>
-      <ion-label floating>Descrição</ion-label>
+      <ion-label stacked>Descrição</ion-label>
       <ion-input type="text" [(ngModel)]="inspectionItem.name"></ion-input>
     </ion-item>
-  </ion-list>
    <ion-fab bottom right>
       <button ion-fab (click)="save()" color="secondary"><i class="ion-checkmark-round"></i></button>
     </ion-fab>
