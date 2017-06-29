@@ -28,6 +28,7 @@ export class InspectionPage {
     if(JSON.parse(localStorage.getItem("inspection"))){
       this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
         inspection => inspection.company_id === this.company.id);
+        //console.log(this.company.address)
     }
     if(!this.inspectionList) {
       this.inspectionList = [];
