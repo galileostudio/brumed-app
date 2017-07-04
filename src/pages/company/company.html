@@ -25,14 +25,12 @@
 <ion-content class="company">
   <!-- Quando a lista está vazia deve-se exibir isso daqui -->
   <ion-content [hidden]="companyList.length">
-    <div>
-      <img class="icone-empresa"  src="assets/icon/empresa.png"/>
-    </div>
-    <div>
-      <p>Não há empresas cadastradas
+    <ion-content class="sem-empresa">
+      <img src="assets/icon/empresa.png"/>
+      <figcaption text-center>Não há empresas cadastradas
         Use o botão de ‘Adicionar’ abaixo
-        para cadastrar uma empresa.</p> 
-    </div>
+        para cadastrar uma empresa.</figcaption> 
+    </ion-content>
   </ion-content>
 
   <!-- Quando existem itens na lista deve-se exibir isso aqui -->
