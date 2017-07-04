@@ -66,9 +66,6 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
     CameraProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CameraProvider
-  ],
-  exports: [
-    ExpandableHeader
   ]
 })
 export class AppModule {}

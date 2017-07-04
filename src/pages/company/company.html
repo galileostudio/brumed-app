@@ -10,12 +10,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Empresas</ion-title>
+    <ion-title>BRUMED</ion-title>
   </ion-navbar>
   <ion-toolbar>
     <ion-searchbar
       [(ngModel)]="filterCompany"
-      (ionInput)="onInput($event)">
+      (ionInput)="onInput($event)"
+      placeholder="Filtrar empresa">
     </ion-searchbar>
   </ion-toolbar>
 
