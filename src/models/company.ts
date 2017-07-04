@@ -3,6 +3,7 @@ export class CompanyModel {
     name: string;
     cnpj: string;
     phone: string;
+    address: string;
     contact: string;
     created_at: number;
     updated_at: number;
@@ -12,6 +13,7 @@ export class CompanyModel {
         this.name = "";
         this.cnpj = "";
         this.phone = "";
+        this.address = "";
         this.contact = "";
         this.created_at = Date.now();
         this.updated_at = Date.now();

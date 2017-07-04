@@ -75,7 +75,11 @@ $toolbar-background: #08A17D;
 @import "ionic.ionicons";
 
 
+<<<<<<< HEAD
+//@import '../icons/ionicons';
+=======
 
+>>>>>>> Layout
 
 
 // Fonts

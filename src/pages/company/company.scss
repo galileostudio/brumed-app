@@ -1,20 +1,44 @@
 page-company{
 	
-}
-ion-list{
+ ion-list{
 	padding-left: 5%;
 	padding-right: 5%;
-}
+ }
 
-#seta-dir{
+ #seta-dir{
 	float: right;
+ }
+
+ .confirma{
+	content: url(src/assets/icon/add.svg);
 }
-#erro{
-	float: left;
-	color: red;
-	padding-right: 5px;
+.sem-empresa{
+	margin-top: 170px;
+}
+.sem-empresa img{
+	height: 100px;
+	width: 100px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+
+}
+figcaption{	
+   	color: #354A4D;		
+	font-size: 16px;	
+	font-weight: bold;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+
+}
+.botao-editar{
+	background-color: #08a17d;
+	color: white;
+	font-family: roboto;
+	width: 60px;
 }
 
-.confirma{
-	content: url(src/assets/icon/add.svg);
+
 }

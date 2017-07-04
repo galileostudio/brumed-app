@@ -21,6 +21,19 @@
 
 </ion-header>
 <ion-content class="company">
+<<<<<<< HEAD
+  <ion-list>
+    <!--<ion-item>
+      <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" ng-model="filterCompany" placeholder="Search">
+      </label>
+    </ion-item>-->
+    <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
+      <ion-item (click)="itemTapped($event, idx)">
+      <ion-avatar item-left>
+      <i id="erro" class="ion-android-alert"></i>
+=======
   <!-- Quando a lista está vazia deve-se exibir isso daqui -->
   <ion-content [hidden]="companyList.length">
     <ion-content class="sem-empresa">
@@ -37,6 +50,7 @@
       <ion-item (click)="itemTapped($event, idx)">
       <ion-avatar item-left>
           <img />
+>>>>>>> Layout
       </ion-avatar>
         <h2>{{ company.name }}</h2>
         <h3>{{ company.phone }}</h3>  
