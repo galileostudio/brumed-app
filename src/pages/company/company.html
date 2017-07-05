@@ -12,13 +12,12 @@
     </button>
     <ion-title>BRUMED</ion-title>
   </ion-navbar>
-  <ion-toolbar>
     <ion-searchbar
       [(ngModel)]="filterCompany"
       (ionInput)="onInput($event)"
       placeholder="Filtrar empresa">
     </ion-searchbar>
-  </ion-toolbar>
+  
 
 </ion-header>
 <ion-content class="company">
@@ -26,7 +25,7 @@
   <ion-content [hidden]="companyList.length">
     <ion-content class="sem-empresa">
       <img src="assets/icon/empresa.png"/>
-      <figcaption text-center>Não há empresas cadastradas
+      <figcaption text-center><strong>Não há empresas cadastradas.</strong><br>
         Use o botão de ‘Adicionar’ abaixo
         para cadastrar uma empresa.</figcaption> 
     </ion-content>
@@ -51,6 +50,6 @@
     </ion-item-sliding>
   </ion-list>
     <ion-fab bottom right>
-      <button ion-fab (click)="add()" color="salvar"><img src="assets/img/icon/add.png" class="add-btn"></button>
+      <button ion-fab (click)="add()" color="salvar"><img src="assets/img/icon/add-plus-button.png"></button>
     </ion-fab>
 </ion-content>
