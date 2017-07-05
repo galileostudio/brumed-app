@@ -14,3 +14,56 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+// Material Design Sidemenu
+#sair{
+  margin-bottom: 5px;
+}
+#menu-material {
+  .menu-header {
+    padding: 5px 15px;
+    background: white;
+    margin-top: 50px;
+    background-size: cover;
+    color: white;
+    .name {
+      float: left;
+      font-weight: 500;
+      margin-bottom: 3px;
+      font-size: 20px;
+      color: black;
+    }
+    .e-mail {
+      float: left;
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-size: 17px;
+      color: black;
+    }
+  }
+  .lista{
+    color: black;
+  }
+  .user-avatar {
+    float: left;
+    display: block;
+    margin-top: -15px;
+    margin-left: 4px;
+    margin-right: auto;
+    margin-bottom: 50px;
+    padding: .5em;
+    height: 16vh;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  h3,
+  .label,
+  {
+    color: #999;
+    font-weight: 400;
+  }
+  ion-icon {
+    color: #777;
+  }
+}
