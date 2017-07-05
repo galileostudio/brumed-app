@@ -20,8 +20,8 @@
   </ion-toolbar>
 
 </ion-header>
-
 <ion-content class="company">
+<<<<<<< HEAD
   <ion-list>
     <!--<ion-item>
       <label class="item item-input">
@@ -33,20 +33,39 @@
       <ion-item (click)="itemTapped($event, idx)">
       <ion-avatar item-left>
       <i id="erro" class="ion-android-alert"></i>
+=======
+  <!-- Quando a lista está vazia deve-se exibir isso daqui -->
+  <ion-content [hidden]="companyList.length">
+    <div>
+      <img class="icone-empresa"  src="assets/icon/empresa.png"/>
+    </div>
+    <div>
+      <p>Não há empresas cadastradas
+        Use o botão de ‘Adicionar’ abaixo
+        para cadastrar uma empresa.</p> 
+    </div>
+  </ion-content>
+
+  <!-- Quando existem itens na lista deve-se exibir isso aqui -->
+  <ion-list [hidden]="!companyList.length">
+    <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
+      <ion-item (click)="itemTapped($event, idx)">
+      <ion-avatar item-left>
+          <img />
+>>>>>>> b2b8e1007ccbe58752925bd45d7a51dd6aca30d7
       </ion-avatar>
         <h2>{{ company.name }}</h2>
         <h3>{{ company.phone }}</h3>  
         <i id="seta-dir" class="ion-ios-arrow-right"></i>      
       </ion-item>
       <ion-item-options>
-        <button danger (click)="edit(idx)">
-          <ion-icon name="trash"></ion-icon>
-            Editar
+        <button class="botao-editar" (click)="edit(idx)">
+          <ion-icon name="md-create"><br>Editar</ion-icon>
           </button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
     <ion-fab bottom right>
-      <button ion-fab (click)="add()" color="danger"><i class="ion-plus-round"></i></button>
+      <button ion-fab (click)="add()" color="salvar"><i class="ion-plus-round"></i></button>
     </ion-fab>
 </ion-content>

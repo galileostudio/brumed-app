@@ -6,13 +6,15 @@
 -->
 <ion-header>
   <expandable-header [scrollArea]="myContent" headerHeight="168" class="ex-header">
-    <button (click)="back()">voltar</button>
+    <button (click)="back()"><ion-icon ios="ios-chevron-left" md="md-chevron-left"></ion-icon></button>
+    <button md="md-create" class="btn-edit"(click)="edit()">Editar</button>
     <ion-label text-center>{{company.name}}</ion-label>
-    <ion-label class="info">CNPJ: {{company.cnpj}}</ion-label>
-    <ion-label class="info">{{company.address}}</ion-label>
-    <ion-label class="info">{{company.phone}}</ion-label>
-    <ion-label class="info">{{company.contact}}</ion-label>
-    <button (click)="edit()" end>editar</button>
+    <ion-label text-center class="info">CNPJ: {{company.cnpj}}</ion-label>
+    <ion-label text-center class="info"><ion-icon ios="ios-pin" md="md-pin"></ion-icon>{{company.address}}</ion-label>      
+    <div class="contato">  
+      <ion-label text-center class="info phone"><ion-icon ios="ios-call" md="md-call">  </ion-icon>{{company.phone}}</ion-label>
+      <ion-label text-center class="info contact"><ion-icon ios="ios-person" md="md-person">  </ion-icon>{{company.contact}}</ion-label>
+    </div>
   </expandable-header>
 </ion-header>
 
@@ -20,22 +22,22 @@
   <ion-list>
     <ion-item-sliding *ngFor="let inspection of inspectionList; let idx = index;">
       <ion-item (click)="itemTapped($event, idx)">
+        <ion-avatar item-left>
+          <img />
+        </ion-avatar>
         <h2>{{ inspection.name }}</h2>
         <h3>{{ inspection.created_at | date: 'medium'}}</h3>
       </ion-item>
       <ion-item-options>
-        <button danger (click)="edit(idx)">
-          <ion-icon name="trash"></ion-icon>
-            Editar
-          </button>
-          <button danger (click)="delete(idx)">
-          <ion-icon name="trash"></ion-icon>
-            Apagar
-          </button>
+        <button class="btn-editar" (click)="edit(idx)">
+          <ion-icon name="md-create"><br>Editar</ion-icon>
+        </button>          
+          <button class="btn-editar" (click)="delete(idx)"><ion-icon name="trash"><br>Apagar</ion-icon>
+        </button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
   <ion-fab bottom right>
-      <button ion-fab (click)="add()" color="danger"><i class="ion-plus-round"></i></button>
+      <button ion-fab (click)="add()" color="salvar"><i class="ion-plus-round"></i></button>
     </ion-fab>
 </ion-content>

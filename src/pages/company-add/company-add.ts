@@ -42,7 +42,7 @@ export class CompanyAddPage {
   }
 
   save(){
-    if(this.companyItem.name && this.companyItem.cnpj && this.companyItem.phone) {
+    if(this.companyItem.name && this.companyItem.cnpj && this.companyItem.phone && this.companyItem.address) {
       if(this.edit){
         this.companyItem.updated_at = Date.now();
         this.companyList[this.index] = this.companyItem;
@@ -51,6 +51,9 @@ export class CompanyAddPage {
       }
       localStorage.setItem("company", JSON.stringify(this.companyList));
       this.navCtrl.pop();
+    }
+    else{
+      console.log("Ta faltando dado aí, veado")
     }
   }
 }
