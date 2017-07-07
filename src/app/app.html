@@ -11,9 +11,11 @@
         <button class="lista" menuClose ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
-      <button font="black" ion-item detail-none >Sair</button>
       </ion-list>
     </ion-content>
+    <ion-footer>
+      <button font="black" ion-item detail-none >Sair</button>
+    </ion-footer>
   </ion-menu>
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
