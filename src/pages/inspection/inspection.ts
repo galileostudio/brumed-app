@@ -1,7 +1,8 @@
+import { InspectionModalPage } from './../inspection-modal/inspection-modal';
 import { CompanyModel } from './../../models/company';
 import { OccurrencePage } from './../occurrence/occurrence';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InspectionModel } from './../../models/inspection';
 import { InspectionAddPage } from './../inspection-add/inspection-add';
 
@@ -19,10 +20,16 @@ import { InspectionAddPage } from './../inspection-add/inspection-add';
 export class InspectionPage {
   public inspectionList: Array<InspectionModel>;
   public company: CompanyModel;
+  items: Array<{ title: string, page: any }>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.company = navParams.get("company");
   }
+
+  inspectionModal() {
+    let myModal = this.modalCtrl.create('InspectionModalPage');
+    myModal.present();
+   }
 
   ionViewDidEnter() {
     if(JSON.parse(localStorage.getItem("inspection"))){

@@ -1,0 +1,21 @@
+.modal-wrapper page-inspection-modal {
+    width: 300px;
+    height: 400px;
+    margin-top: 100px;
+    margin-left: 30px;
+    .title{
+        font-size: 20px;
+        float: left;
+    }
+    .cancel{
+        float: right;
+        height: 20px;
+    }
+    .align-center{
+        display: block;
+    }
+    .inspection{
+       margin-top: 30px;
+       margin-bottom: 30px;  
+    }
+}
