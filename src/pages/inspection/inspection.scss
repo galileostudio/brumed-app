@@ -25,6 +25,7 @@
 	}
 	.ex-header ion-icon{
 		color: #fff;
+		font-size: 20px;
 	}
 	.ex-header ion-label{
 		color: #fff;
@@ -37,6 +38,14 @@
 	}
 	.btn-edit{
 		float: right;
+		font-size: 34px;
+		color: white;
+		background-color: transparent;
+	}
+	.btn-voltar{
+		font-size: 34px;
+		color: white;
+		background-color: transparent;
 	}
 	.btn-editar{
 		background-color: #08a17d;
@@ -58,5 +67,35 @@
 	.contato .phone{
 		width: 100%;
 	}
+.sem-empresa{
+	margin-top: 170px;
+}
+.sem-empresa img{
+	height: 62px;
+	width: 49px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+
+}
+figcaption{	
+   	color: #344A4D;		
+	font-size: 16px;	
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	display: block;
+}
+.status{
+	font-size: 32px;
+	color: #D03001;
+}
+.seta-dir{
+	color: #344A4D;
+	float: right;	
+	font-size: 32px;
+}
+
 }
 

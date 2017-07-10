@@ -4,21 +4,32 @@ page-company{
 	padding-left: 5%;
 	padding-right: 5%;
  }
-
- #seta-dir{
-	float: right;
- }
- ion-searchbar{
- 	background-color: #F2F2F2;
-
- }
+.seta-dir{
+	color: #344A4D;
+	float: right;	
+	font-size: 32px;
+}
  .confirma{
 	content: url(src/assets/icon/add.svg);
 }
-.sem-empresa{
+ion-searchbar{
+	width: 320px;
+	height: auto
+}
+ion-buttons{
+	float: right;
+}
+.icone-filtro{
+	font-size: 25px;
+	color: #344A4D;
+	width: 40px;
+	height: auto;	
+}
+
+.sem-inspecao{
 	margin-top: 170px;
 }
-.sem-empresa img{
+.sem-inspecao img{
 	height: 62px;
 	width: 49px;
 	display: block;
@@ -48,7 +59,10 @@ figcaption{
 	width: 34px;
 	height: 34px;
 }
-
+.status{
+	font-size: 32px;
+	color: #D03001;
+}
 
 }
 

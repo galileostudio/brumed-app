@@ -12,20 +12,27 @@
     </button>
     <ion-title>BRUMED</ion-title>
   </ion-navbar>
-    <ion-searchbar
-      [(ngModel)]="filterCompany"
-      (ionInput)="onInput($event)"
-      placeholder="Filtrar empresa">
-    </ion-searchbar>
-  
-
+   <ion-item>
+      <ion-searchbar item-left
+        [(ngModel)]="filterCompany"
+        (ionInput)="onInput($event)"
+        placeholder="Filtrar empresa">
+      </ion-searchbar>  
+      <ion-buttons item right>
+      <button menuToggle class="filter">
+       <ion-icon  class="icone-filtro" ios="ios-funnel" md="md-funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-item> 
 </ion-header>
+ 
+
 <ion-content class="company">
   <!-- Quando a lista está vazia deve-se exibir isso daqui -->
   <ion-content [hidden]="companyList.length">
     <ion-content class="sem-empresa">
       <img src="assets/icon/empresa.png"/>
-      <figcaption text-center><strong>Não há empresas cadastradas.</strong><br>
+      <figcaption text-center><strong>Não há empresas cadastradas</strong><br>
         Use o botão de ‘Adicionar’ abaixo
         para cadastrar uma empresa.</figcaption> 
     </ion-content>
@@ -36,11 +43,11 @@
     <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
       <ion-item (click)="itemTapped($event, idx)">
       <ion-avatar item-left>
-          <img />
+          <ion-icon class="status" ios="ios-alert" md="md-alert"></ion-icon>
       </ion-avatar>
         <h2>{{ company.name }}</h2>
-        <h3>{{ company.phone }}</h3>  
-        <i id="seta-dir" class="ion-ios-arrow-right"></i>      
+        <h3>{{ company.phone }}</h3> 
+         <ion-icon class="seta-dir" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon> 
       </ion-item>
       <ion-item-options>
         <button class="botao-editar" (click)="edit(idx)">
