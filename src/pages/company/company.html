@@ -39,7 +39,7 @@
   </ion-content>
 
   <!-- Quando existem itens na lista deve-se exibir isso aqui -->
-  <ion-list class="lista-empresa" [hidden]="!companyList.length">
+  <ion-list [hidden]="!companyList.length">
     <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
       <ion-item (click)="itemTapped($event, idx)">
       <ion-avatar item-left>
