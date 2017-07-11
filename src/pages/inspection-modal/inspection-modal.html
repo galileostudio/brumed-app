@@ -9,12 +9,11 @@
   <div class="title">Nome da inspeção</div>
   <button class="cancel" (click)="dismiss()"></button>
   <ion-row class="inspection">
-    <ion-label floating>Descrição</ion-label>
-    <ion-input type="text" ></ion-input>
+    <ion-input class="name" placeholder="Nome da inspeção" ></ion-input>
   </ion-row>
   <ion-row class="confirm-btn">
     <ion-col>
-      <button ion-button full (click)="confirm()">Continuar</button>
+      <button class="rectangle"  ion-button full (click)="confirm()">Continuar</button>
     </ion-col>
   </ion-row>
 </ion-content>

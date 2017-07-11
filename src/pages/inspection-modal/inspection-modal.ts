@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ViewController, IonicPage} from 'ionic-angular';
 
 /**
  * Generated class for the InspectionModalPage page.

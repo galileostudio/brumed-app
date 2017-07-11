@@ -1,4 +1,3 @@
-import { InspectionModalPage } from './../inspection-modal/inspection-modal';
 import { CompanyModel } from './../../models/company';
 import { OccurrencePage } from './../occurrence/occurrence';
 import { Component } from '@angular/core';
