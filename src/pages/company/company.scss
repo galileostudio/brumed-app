@@ -8,22 +8,35 @@ page-company{
 	color: #344A4D;
 	float: right;	
 	font-size: 32px;
+	margin-top: -13%;
 }
  .confirma{
 	content: url(src/assets/icon/add.svg);
 }
 ion-searchbar{
-	width: 320px;
-	height: auto
+	width: 75%;
+	height: 2%;
+	border: #F2F2F2;
+
 }
 ion-buttons{
 	float: right;
+
+
+}
+.search{
+	background-color: #F2F2F2;
+	
+}
+.filter{
+	background-color: #F2F2F2;
 }
 .icone-filtro{
 	font-size: 25px;
 	color: #344A4D;
 	width: 40px;
 	height: auto;	
+	background-color: #F2F2F2;
 }
 
 .sem-inspecao{

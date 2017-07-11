@@ -12,8 +12,8 @@
     </button>
     <ion-title>BRUMED</ion-title>
   </ion-navbar>
-   <ion-item>
-      <ion-searchbar item-left
+   <ion-item class="search" >
+      <ion-searchbar class="search" item-left
         [(ngModel)]="filterCompany"
         (ionInput)="onInput($event)"
         placeholder="Filtrar empresa">
@@ -39,7 +39,7 @@
   </ion-content>
 
   <!-- Quando existem itens na lista deve-se exibir isso aqui -->
-  <ion-list [hidden]="!companyList.length">
+  <ion-list class="lista-empresa" [hidden]="!companyList.length">
     <ion-item-sliding *ngFor="let company of companyList; let idx = index;"> 
       <ion-item (click)="itemTapped($event, idx)">
       <ion-avatar item-left>
