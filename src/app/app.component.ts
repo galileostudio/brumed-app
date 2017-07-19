@@ -24,10 +24,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Perfil', component: ProfilePage},
-      { title: 'Empresas', component: CompanyPage},
-      { title: 'Sincronizar', component: SyncPage},
-      { title: 'About', component: AboutPage},
+      { title: 'Início', component: CompanyPage},
+      { title: 'Sincronizar dados', component: SyncPage},
+      { title: 'Sobre', component: AboutPage},
     ];
 
   }
@@ -45,5 +44,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  openProfile(){
+    this.nav.setRoot(ProfilePage);
   }
 }
