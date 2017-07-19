@@ -46,8 +46,11 @@ export class LoginPage {
   }
   login() {
     let loading = this.loadingCtrl.create({
-      duration: 500
+      content:'Entrando...',
+      duration: 500,
+      spinner: 'crescent'
     });
+    loading.present();
     this.navCtrl.pop();
 
     /*loading.onDidDismiss(() => {
@@ -58,9 +61,6 @@ export class LoginPage {
       });
       alert.present();
     }); */
-
-    loading.present();
-
   }
 
   doConfirm() {

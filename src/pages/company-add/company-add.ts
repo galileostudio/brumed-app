@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import { CompanyModel } from './../../models/company';
 /**
  * Generated class for the CompanyAddPage page.
@@ -19,7 +19,7 @@ export class CompanyAddPage {
   private index: number;
   private edit: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController) {
     this.edit = false;
     
     this.companyList = JSON.parse(localStorage.getItem("company"));
@@ -58,7 +58,7 @@ export class CompanyAddPage {
       console.log("Ta faltando dado aí, veado")
     }
   }
-  public toastTestSim(){
+  toastTestSim(){
     let toast = this.toastCtrl.create({
     message: `A empresa foi adicionada à lista`,
     duration: 2000,
@@ -68,7 +68,7 @@ export class CompanyAddPage {
   });
     toast.present();
   }
-  public toastTestNao(){
+  toastTestNao(){
     let toast = this.toastCtrl.create({
     message: `Todos os campos são obrigatórios`,
     duration: 2000,
