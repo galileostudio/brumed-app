@@ -8,9 +8,6 @@
 
   <ion-navbar>
     <ion-title>Ocorrências</ion-title>
-    <ion-buttons end>
-      <button (click)="add()"><ion-icon name="add"></ion-icon></button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -20,19 +17,23 @@
   <ion-list>
     <ion-item-sliding *ngFor="let occurrence of occurrenceList; let idx = index;"> 
       <ion-item (click)="show(idx)">
+      <ion-avatar item-left>
+          <ion-icon class="status" ios="ios-alert" md="md-alert"></ion-icon>
+        </ion-avatar>
         <h2>{{ occurrence.description }}</h2>
         <h3>{{ occurrence.created_at | date: 'medium'}}</h3>
+        <ion-icon class="seta-dir" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon> 
       </ion-item>
-      <ion-item-options>
-        <button danger (click)="edit(idx)">
-          <ion-icon name="trash"></ion-icon>
-            Editar
-          </button>
-          <button danger (click)="delete(idx)">
-          <ion-icon name="trash"></ion-icon>
-            Apagar
-          </button>
+      <ion-item-options class="slide">
+        <button class="btn-editar" (click)="edit(idx)">
+          <ion-icon name="md-create"><br>Editar</ion-icon>
+        </button>          
+          <button class="btn-editar" (click)="delete(idx)"><ion-icon name="trash"><br>Apagar</ion-icon>
+        </button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+  <ion-fab bottom right>
+      <button ion-fab (click)="add()" color="salvar"><img src="assets/img/icon/add-plus-button.png"></button>
+    </ion-fab>
 </ion-content>

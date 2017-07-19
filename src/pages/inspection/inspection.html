@@ -8,8 +8,13 @@
   <expandable-header [scrollArea]="myContent" headerHeight="168" class="ex-header">
     <button class="btn-voltar" (click)="back()"><ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>
     <button md="md-create" class="btn-edit"(click)="edit()"><ion-icon ios="md-create" md="md-create"></ion-icon></button>
-    <ion-label text-center>{{company.name}}</ion-label>
-    <ion-label text-center class="info">CNPJ: {{company.cnpj}}</ion-label>
+    <div class="div-empresa">
+      <div class="icone">
+        <div class="fundo-icone"><img src="assets/icon/empresa.png"/></div>
+      </div>
+      <ion-label class="nome-empresa" text-center>{{company.name}}</ion-label>
+      <ion-label class="cnpj"text-center class="info">CNPJ: {{company.cnpj}}</ion-label>
+    </div>
     <ion-label text-center class="info"><ion-icon ios="ios-pin" md="md-pin"></ion-icon>{{company.address}}</ion-label>      
     <div class="contato">  
       <ion-label text-center class="info phone"><ion-icon ios="ios-call" md="md-call">  </ion-icon>{{company.phone}}</ion-label>
@@ -36,8 +41,8 @@ para cadastrar uma inspenção.</figcaption>
         <ion-avatar item-left>
           <ion-icon class="status" ios="ios-alert" md="md-alert"></ion-icon>
         </ion-avatar>
-        <h2>{{ inspection.name }}</h2>
         <h3>{{ inspection.created_at | date: 'medium'}}</h3>
+        <h2>{{ inspection.name }}</h2>        
         <ion-icon class="seta-dir" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon> 
       </ion-item>
 

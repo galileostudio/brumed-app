@@ -11,10 +11,16 @@
 				transition: 0.2s linear;
 			}
 	}
+	expandable-header{
+		margin: auto;
+		padding-bottom: 10%;
+	}
 	.info{
 		
 		font-weight: bold;
 		color: #ffff;
+		margin: auto;
+		padding-top: 10%;
 
 
 	}
@@ -32,6 +38,37 @@
 		margin: 0;
 		padding: 0;
 
+	}
+	.icone{
+		margin: auto;
+	}
+	.fundo-icone{
+		background-color: #018869;
+		width: 35px;
+		height: 35px;
+		display: block;
+		border: 0px;
+		border-radius: 50%;
+		
+	}
+	.fundo-icone img{
+		margin: auto;
+		padding: 10px;
+				
+	}
+	.div-empresa{
+		margin: auto;
+		display: block;
+		padding-left: auto;
+	}
+	.nome-empresa{
+		font-size: 25px;
+		float: center;
+		margin: auto;
+		padding: 5px;
+	}
+	.cnpj{
+		font-size: 22px;
 	}
 	#item{
 		height: 10px;
@@ -57,7 +94,6 @@
   		margin: auto;
   		justify-content: center;
   		padding-left: auto;
-
 	}
 	.contato .contact{
 		padding-left: 5px;
