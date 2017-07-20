@@ -17,13 +17,14 @@
 
 
 // Material Design Sidemenu
+
 #sair{
   margin-bottom: 5px;
 }
 #menu-material {
+
   .menu-header {
     padding: 5px 15px;
-    background: white;
     margin-top: 50px;
     background-size: cover;
     color: white;
@@ -32,18 +33,20 @@
       font-weight: 500;
       margin-bottom: 3px;
       font-size: 20px;
-      color: black;
+      color: #344A4D;
     }
     .e-mail {
       float: left;
       margin-top: 0;
       margin-bottom: 5px;
       font-size: 17px;
-      color: black;
+      color: #344A4D;
     }
   }
   .lista{
-    color: black;
+    color:  #344A4D;
+    background-color: #F4F4F4;
+
   }
   .user-avatar {
     float: left;
@@ -67,6 +70,20 @@
     color: #777;
   }
   .footer{
-    color:black !important;
+    color: #344A4D;
+    background-color: #F4F4F4;
+    
+  }
+ .botao-sair{
+  background-color: #F4F4F4;
+ }
+  .back-menu{
+    background-color: #F4F4F4;
+  }
+  .icone-pwr{
+    width: 18px;
+    height: 20,31px;
+    margin: auto;
+    
   }
 }
