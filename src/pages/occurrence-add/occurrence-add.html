@@ -17,18 +17,16 @@
 
 
 
-<ion-content class="company-add">
+<ion-content padding>
   <ion-list>
-      <ion-label stacked>Nome da empresa</ion-label>
-      <ion-input type="text" name="nome" maxlength="40" placeholder="Adicionar nome da empresa" [(ngModel)]="companyItem.name"></ion-input>
-      <ion-label stacked>CNPJ</ion-label>
-      <ion-input type="tel" name="cnpj" placeholder="Adicionar CNPJ" [brmasker]="{mask:'00.000.000/0000-00', len:18}" [(ngModel)]="companyItem.cnpj"></ion-input>
-      <ion-label stacked>Endereço</ion-label>
-      <ion-input type="text" name="endereco" placeholder="Adicionar endereço" [(ngModel)]="companyItem.address"></ion-input>
-      <ion-label stacked>Telefone de contato</ion-label>
-      <ion-input type="tel" name="telefone" placeholder="Adicionar telefone de contato"[brmasker]="{mask:'(00) 0000-0000', len:14}" [(ngModel)]="companyItem.phone"></ion-input>
-      <ion-label stacked>Responsável</ion-label>
-      <ion-input type="text" name="contato" placeholder="Adicionar responsável" [(ngModel)]="companyItem.contact"></ion-input>
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="occurrenceItem.description" [readonly]="!edit"></ion-input>
+    </ion-item>
+    <ion-card-content>
+      <img class="img" width="150" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'" (click)="changePicture()"/>
+      <button ion-button color="danger" (click)="changePicture()" [hidden]="!edit">Capturar Imagem</button>
+    </ion-card-content>
     </ion-list>
     <button ion-button (click)="save()" class="botao-salvar"> Salvar </button>
 </ion-content>
