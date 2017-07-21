@@ -8,8 +8,17 @@
         <p class="name">Fulano de tal</p>
       </div>
       <ion-list no-lines>
-        <button class="lista" menuClose ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <button class="lista" menuClose ion-item detail-none  (click)="openHome()">
+        <img class="icone-pwr" src="assets/img/icon/home.png">
+        Início
+      </button>
+      <button class="lista" menuClose ion-item detail-none  (click)="openHome()">
+        <img class="icone-pwr" src="assets/img/icon/refresh-icon.png">
+        Sincronizar Dados
+      </button>
+      <button class="lista" menuClose ion-item detail-none  (click)="openHome()">
+        <img class="icone-pwr" src="assets/img/icon/info.png">
+        Sobre
       </button>
       </ion-list>
     </ion-content>
