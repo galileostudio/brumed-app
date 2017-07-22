@@ -17,18 +17,21 @@ export class MyApp {
 
   rootPage: any = CompanyPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
+
+  icons: Array<{icon: string}>;
+
+  iconTest = "assets/img/icon/power.png";
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Início', component: CompanyPage},
-      { title: 'Sincronizar dados', component: SyncPage},
-      { title: 'Sobre', component: AboutPage},
+      { title: 'Início', component: CompanyPage, icon: this.iconTest},
+      { title: 'Sincronizar dados', component: SyncPage, icon: this.iconTest},
+      { title: 'Sobre', component: AboutPage, icon: this.iconTest},
     ];
-
   }
 
   initializeApp() {
@@ -45,7 +48,15 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-
+  openHome(){
+    this.nav.setRoot(CompanyPage);
+  }
+  openSync(){
+    this.nav.setRoot(SyncPage);
+  }
+  openAbout(){
+    this.nav.setRoot(AboutPage);
+  }
   openProfile(){
     this.nav.setRoot(ProfilePage);
   }

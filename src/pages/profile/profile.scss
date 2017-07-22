@@ -1,7 +1,9 @@
 page-profile {
 
     .img {
-        object-fit: cover
+		display: block;
+        object-fit: cover;
+		margin: auto;
     }
 
 	.perfil{
