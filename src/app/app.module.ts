@@ -15,6 +15,7 @@ import { OccurrenceAddPage } from './../pages/occurrence-add/occurrence-add';
 import { RecoverPwdPage } from './../pages/recover-pwd/recover-pwd';
 import { SyncPage } from './../pages/sync/sync';
 import { ProfilePage } from './../pages/profile/profile';
+import { InspectionModalPage } from './../pages/inspection-modal/inspection-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -37,7 +38,8 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
     RecoverPwdPage,
     SyncPage,
     ProfilePage,
-    ExpandableHeader
+    ExpandableHeader,
+    InspectionModalPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
     OccurrenceAddPage,
     RecoverPwdPage,
     SyncPage,
-    ProfilePage
+    ProfilePage,
+    InspectionModalPage
   ],
   providers: [
     StatusBar,

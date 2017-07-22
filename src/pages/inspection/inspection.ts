@@ -1,7 +1,8 @@
+import { InspectionModalPage } from './../inspection-modal/inspection-modal';
 import { CompanyModel } from './../../models/company';
 import { OccurrencePage } from './../occurrence/occurrence';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { InspectionModel } from './../../models/inspection';
 import { InspectionAddPage } from './../inspection-add/inspection-add';
 
@@ -20,7 +21,7 @@ export class InspectionPage {
   public inspectionList: Array<InspectionModel>;
   public company: CompanyModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     this.company = navParams.get("company");
   }
 
@@ -35,17 +36,24 @@ export class InspectionPage {
     }
   }
 
+  openModal() {
+    let myModal = this.modalCtrl.create(InspectionModalPage);
+    myModal.present();
+  }
+
   add(){
-    this.navCtrl.push(InspectionAddPage, {
+    let myModal = this.modalCtrl.create(InspectionAddPage, {
       company_id: this.company.id
     });
+    myModal.present();
   }
 
   edit(index: number){
-     this.navCtrl.push(InspectionAddPage, {
+     let myModal = this.modalCtrl.create(InspectionAddPage, {
       index: index,
       company_id: this.company.id
     });
+    myModal.present();
   }
 
   delete(index: number){

@@ -1,5 +1,5 @@
 <!--
-  Generated template for the InspectionModalPage page.
+  Generated template for the InspectionAddPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +7,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>inspection-modal</ion-title>
+    <ion-title>{{title}} Inspeção</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-item>
+      <ion-label stacked>Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="inspectionItem.name"></ion-input>
+    </ion-item>
+   <ion-fab bottom right>
+      <button ion-fab (click)="save()" color="secondary"><i class="ion-checkmark-round"></i></button>
+    </ion-fab>
 </ion-content>
