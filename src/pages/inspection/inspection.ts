@@ -4,7 +4,7 @@ import { OccurrencePage } from './../occurrence/occurrence';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { InspectionModel } from './../../models/inspection';
-import { InspectionAddPage } from './../inspection-add/inspection-add';
+//import { InspectionAddPage } from './../inspection-add/inspection-add';
 
 /**
  * Generated class for the InspectionPage page.
@@ -25,7 +25,7 @@ export class InspectionPage {
     this.company = navParams.get("company");
   }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     if(JSON.parse(localStorage.getItem("inspection"))){
       this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
         inspection => inspection.company_id === this.company.id);
@@ -36,22 +36,37 @@ export class InspectionPage {
     }
   }
 
-  openModal() {
-    let myModal = this.modalCtrl.create(InspectionModalPage);
-    myModal.present();
-  }
-
   add(){
-    let myModal = this.modalCtrl.create(InspectionAddPage, {
+    console.log("antes de chamar");
+    let myModal = this.modalCtrl.create(InspectionModalPage, {
       company_id: this.company.id
+    });
+    console.log("depois de chamar");
+    myModal.onDidDismiss(() => {
+      if(JSON.parse(localStorage.getItem("inspection"))){
+      this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
+        inspection => inspection.company_id === this.company.id);
+      }
+      if(!this.inspectionList) {
+        this.inspectionList = [];
+      }
     });
     myModal.present();
   }
 
   edit(index: number){
-     let myModal = this.modalCtrl.create(InspectionAddPage, {
+     let myModal = this.modalCtrl.create(InspectionModalPage, {
       index: index,
       company_id: this.company.id
+    });
+    myModal.onDidDismiss(() => {
+      if(JSON.parse(localStorage.getItem("inspection"))){
+      this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
+        inspection => inspection.company_id === this.company.id);
+      }
+      if(!this.inspectionList) {
+        this.inspectionList = [];
+      }
     });
     myModal.present();
   }

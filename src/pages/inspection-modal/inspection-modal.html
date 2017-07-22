@@ -5,19 +5,22 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>{{title}} Inspeção</ion-title>
+    <ion-title>Nome Inspeção</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+      <ion-icon name='close'></ion-icon>
+    </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
-    <ion-item>
-      <ion-label stacked>Descrição</ion-label>
-      <ion-input type="text" [(ngModel)]="inspectionItem.name"></ion-input>
-    </ion-item>
-   <ion-fab bottom right>
-      <button ion-fab (click)="save()" color="secondary"><i class="ion-checkmark-round"></i></button>
-    </ion-fab>
+  <ion-item>
+    <ion-label floting></ion-label>
+    <ion-input type="text" class="name" [(ngModel)]="inspectionItem.name"></ion-input>
+  </ion-item>
+    <ion-footer>
+      <button class="button" ion-button full (click)="save()">Confirmar
+      </button>
+    </ion-footer>
 </ion-content>
