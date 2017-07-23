@@ -13,16 +13,11 @@
     <ion-title>BRUMED</ion-title>
   </ion-navbar>
    <ion-item no-lines class="search" >
-      <ion-searchbar no-lines class="search" item-left
+      <ion-searchbar no-lines class="searchbar" item-left
         [(ngModel)]="filterCompany"
         (ionInput)="onInput($event)"
         placeholder="Filtrar empresa">
-      </ion-searchbar>  
-      <ion-buttons item right>
-      <button menuToggle class="filter">
-       <ion-icon  class="icone-filtro" ios="ios-funnel" md="md-funnel"></ion-icon>
-      </button>
-    </ion-buttons>
+      </ion-searchbar>
   </ion-item> 
 </ion-header>
  

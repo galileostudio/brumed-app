@@ -6,9 +6,9 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Nome Inspeção</ion-title>
+    <ion-title>Adicionar</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="closeBtn()">
       <ion-icon name='close'></ion-icon>
     </button>
     </ion-buttons>
@@ -16,7 +16,7 @@
 </ion-header>
 <ion-content padding>
   <ion-item>
-    <ion-label floting></ion-label>
+    <ion-label floating>Nome da inspeção</ion-label>
     <ion-input type="text" class="name" [(ngModel)]="inspectionItem.name"></ion-input>
   </ion-item>
     <ion-footer>
