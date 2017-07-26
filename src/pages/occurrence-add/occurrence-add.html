@@ -18,6 +18,41 @@
 
 
 <ion-content padding>
+<ion-item>
+  <ion-label>Selecione NR</ion-label>
+  <ion-select [(ngModel)]="NR">
+    <ion-option value="a">NR 1 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+    <ion-option value="b">NR 2 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+    <ion-option value="c">NR 3 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+    <ion-option value="d">NR 4 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Prioridade</ion-label>
+  <ion-select [(ngModel)]="Prioridade">
+    <ion-option value="e">Baixa</ion-option>
+    <ion-option value="f">Média</ion-option>
+    <ion-option value="g">Alta</ion-option>
+    <ion-option value="h">Altíssima</ion-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-label>Prazo</ion-label>
+  <ion-select [(ngModel)]="Prazo">
+    <ion-option value="e">Curto</ion-option>
+    <ion-option value="f">Médio</ion-option>
+    <ion-option value="g">longo</ion-option>
+    <ion-option value="h">Escolher data</ion-option>
+  </ion-select>
+</ion-item>
+ <ion-item>
+    <ion-label color="primary">Anotações</ion-label>
+    <input type="text" name="Nome" size="40" /> 
+  </ion-item>
+
+
+
+
   <ion-list>
     <ion-item>
       <ion-label floating>Descrição</ion-label>
