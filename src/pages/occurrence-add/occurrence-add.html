@@ -15,8 +15,6 @@
 
 </ion-header>
 
-
-
 <ion-content padding>
 <ion-item>
   <ion-label>Selecione NR</ion-label>
@@ -39,19 +37,16 @@
 <ion-item>
   <ion-label>Prazo</ion-label>
   <ion-select [(ngModel)]="Prazo">
+    <ion-option value="d">Imediato</ion-option>
     <ion-option value="e">Curto</ion-option>
     <ion-option value="f">Médio</ion-option>
     <ion-option value="g">longo</ion-option>
-    <ion-option value="h">Escolher data</ion-option>
   </ion-select>
 </ion-item>
  <ion-item>
-    <ion-label color="primary">Anotações</ion-label>
-    <input type="text" name="Nome" size="40" /> 
+    <ion-label color="primary" >Anotações</ion-label>
+    <ion-textarea type="text" name="notes"></ion-textarea> 
   </ion-item>
-
-
-
 
   <ion-list>
     <ion-item>
