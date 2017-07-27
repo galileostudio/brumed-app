@@ -1,3 +1,41 @@
 img {
     object-fit: cover
 }
+ion-content{
+	margin: auto;
+}
+.selects{
+	margin: auto;
+}
+.prioridade{
+	width: auto;
+	float: left;
+	margin-bottom: 20px;
+	padding-top: 10px;
+}
+.prazo{
+	width: auto; 
+	float: right;
+	margin-bottom: 20px;  
+	padding-top: 10px; 
+}
+.anotacoes{
+	padding-top: 10%;
+	background-color: pink;
+}
+ .botao-salvar{
+    width: 90%;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    margin:auto;
+    display:block;
+    background-color: #fb913b;
+  }
+ .description{
+ 	padding-left: 10px;
+ }
+  .text{
+  	background-color: #F2F2F2;
+  	height: 200px;
+  }

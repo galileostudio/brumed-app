@@ -8,54 +8,66 @@
 
   <ion-navbar>
     <ion-title>{{title}} ocorrência</ion-title>
-    <ion-buttons end [hidden]="!edit">
-      <button (click)="save()"><ion-icon name="checkmark"></ion-icon></button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
-<ion-item>
-  <ion-label>Selecione NR</ion-label>
-  <ion-select [(ngModel)]="NR">
-    <ion-option value="a">NR 1 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
-    <ion-option value="b">NR 2 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
-    <ion-option value="c">NR 3 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
-    <ion-option value="d">NR 4 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
-  </ion-select>
-</ion-item>
-<ion-item>
-  <ion-label>Prioridade</ion-label>
-  <ion-select [(ngModel)]="Prioridade">
-    <ion-option value="e">Baixa</ion-option>
-    <ion-option value="f">Média</ion-option>
-    <ion-option value="g">Alta</ion-option>
-    <ion-option value="h">Altíssima</ion-option>
-  </ion-select>
-</ion-item>
-<ion-item>
-  <ion-label>Prazo</ion-label>
-  <ion-select [(ngModel)]="Prazo">
-    <ion-option value="d">Imediato</ion-option>
-    <ion-option value="e">Curto</ion-option>
-    <ion-option value="f">Médio</ion-option>
-    <ion-option value="g">longo</ion-option>
-  </ion-select>
-</ion-item>
- <ion-item>
-    <ion-label color="primary" >Anotações</ion-label>
-    <ion-textarea type="text" name="notes"></ion-textarea> 
-  </ion-item>
-
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Descrição</ion-label>
-      <ion-input type="text" [(ngModel)]="occurrenceItem.description" [readonly]="!edit"></ion-input>
+  <div class="selects">
+    <ion-item class="nr">
+      <ion-label>Selecione NR</ion-label>
+      <ion-select [(ngModel)]="NR">
+        <ion-option value="a">NR 1 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+        <ion-option value="b">NR 2 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+        <ion-option value="c">NR 3 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+        <ion-option value="d">NR 4 - Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum</ion-option>
+      </ion-select>
     </ion-item>
-    <ion-card-content>
-      <img class="img" width="150" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'" (click)="changePicture()"/>
-      <button ion-button color="danger" (click)="changePicture()" [hidden]="!edit">Capturar Imagem</button>
-    </ion-card-content>
+    <ion-item class="prioridade">
+      <ion-label>Prioridade</ion-label>
+      <ion-select [(ngModel)]="Prioridade">
+        <ion-option value="e">Baixa</ion-option>
+        <ion-option value="f">Média</ion-option>
+        <ion-option value="g">Alta</ion-option>
+        <ion-option value="h">Altíssima</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="prazo">
+      <ion-label>Prazo</ion-label>
+      <ion-select [(ngModel)]="Prazo">
+        <ion-option value="d">Imediato</ion-option>
+        <ion-option value="e">Curto</ion-option>
+        <ion-option value="f">Médio</ion-option>
+        <ion-option value="g">Longo</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label class="description"floating>Descrição</ion-label>
+      <ion-input class="text" type="text" [(ngModel)]="occurrenceItem.description" [readonly]="!edit"></ion-input>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 >
+          <ion-card-content>
+            <button (click)="changePicture()" [hidden]="!edit">
+              <img class="img" width="150" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'" (click)="changePicture()"/>
+            </button>
+          </ion-card-content>
+        </ion-col>
+        <ion-col col-6 >
+          <ion-card-content>
+            <button (click)="changePicture()" [hidden]="!edit">
+              <img class="img" width="150" height="150" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'" (click)="changePicture()"/>
+            </button>
+          </ion-card-content>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
     </ion-list>
+      <button class="botao-salvar" (click)="save()">Salvar</button>
 </ion-content>
