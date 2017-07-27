@@ -1,3 +1,4 @@
+import { RegulationAddPage } from './../pages/regulation-add/regulation-add';
 import { AppMaskerModule } from 'brmasker-ionic';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -39,7 +40,8 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
     SyncPage,
     ProfilePage,
     ExpandableHeader,
-    InspectionModalPage
+    InspectionModalPage,
+    RegulationAddPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
     RecoverPwdPage,
     SyncPage,
     ProfilePage,
-    InspectionModalPage
+    InspectionModalPage,
+    RegulationAddPage
   ],
   providers: [
     StatusBar,
