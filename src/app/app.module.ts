@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { RegulationAddPage } from './../pages/regulation-add/regulation-add';
 import { AppMaskerModule } from 'brmasker-ionic';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +24,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { CameraProvider } from '../providers/camera/camera.provider';
 import { ExpandableHeader } from '../components/expandable-header/expandable-header';
+import { RegulationProvider } from '../providers/regulation/regulation';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -46,7 +49,8 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AppMaskerModule
+    AppMaskerModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,7 +75,8 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
     Camera,
     CameraProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CameraProvider
+    CameraProvider,
+    RegulationProvider
   ]
 })
 export class AppModule {}

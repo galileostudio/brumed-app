@@ -7,6 +7,7 @@ import { IonicPage,
   LoadingController } from 'ionic-angular';
 import { OccurrenceModel } from './../../models/occurrence';
 import { CameraProvider } from './../../providers/camera/camera.provider';
+import { RegulationProvider } from './../../providers/regulation/regulation';
 
 /**
  * Generated class for the OccurrenceAddPage page.
@@ -18,6 +19,7 @@ import { CameraProvider } from './../../providers/camera/camera.provider';
 @Component({
   selector: 'page-occurrence-add',
   templateUrl: 'occurrence-add.html',
+  providers: [RegulationProvider],
 })
 export class OccurrenceAddPage {
   public occurrenceList: Array<OccurrenceModel>;
@@ -31,9 +33,11 @@ export class OccurrenceAddPage {
   public placeholder = 'assets/img/placeholder.png';
   public chosenPicture: any;
 
+  public regulation: any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public actionsheetCtrl: ActionSheetController,
-    public cameraProvider: CameraProvider, public platform: Platform, public loadingCtrl: LoadingController) {
+    public cameraProvider: CameraProvider, public platform: Platform, public loadingCtrl: LoadingController, public regulationProvider: RegulationProvider) {
     this.saveOrEdit = false;
     this.edit = false;
 
@@ -64,6 +68,11 @@ export class OccurrenceAddPage {
     }
   }
 
+  ionViewDidLoad(){
+    this.loadRegulation();
+    console.log(this.regulation);
+  }
+
   save(){
     if (this.occurrenceItem.description){
       if(this.saveOrEdit){
@@ -88,6 +97,12 @@ export class OccurrenceAddPage {
     }
   }
 
+  loadRegulation(){
+    this.regulationProvider.load()
+    .then(data => {
+      this.regulation = data;
+    });
+}
   changePicture() {
 
     if(!this.edit){
