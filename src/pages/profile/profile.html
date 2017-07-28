@@ -16,13 +16,13 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class= "perfil" padding>
   <ion-card-content>
-      <img class="img" width="150" height="150" style="border-radius:50%" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'"
+      <img class="img" width="120" height="120" style="border-radius:50%" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'"
       (click)="changePicture()"/>
     </ion-card-content>
-  <ion-item name="identificador">{{this.identifier}}</ion-item>
-  <ion-item name="nome">{{this.name}}</ion-item>
-  <ion-item name="telefone">{{this.phone}}</ion-item>
+  <ion-item no-lines class="perfil-lista" name="identificador">{{this.identifier}}</ion-item>
+  <ion-item no-lines  class="perfil-lista" name="nome">{{this.name}}</ion-item>
+  <ion-item no-lines  class="perfil-lista" name="telefone">{{this.phone}}</ion-item>
 
 </ion-content>

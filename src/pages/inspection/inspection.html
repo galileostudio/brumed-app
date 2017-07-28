@@ -5,30 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <expandable-header [scrollArea]="myContent" headerHeight="168" class="ex-header">
-    <button (click)="back()"><ion-icon ios="ios-chevron-left" md="md-chevron-left"></ion-icon></button>
-    <button md="md-create" class="btn-edit"(click)="edit()">Editar</button>
-    <ion-label text-center>{{company.name}}</ion-label>
-    <ion-label text-center class="info">CNPJ: {{company.cnpj}}</ion-label>
-    <ion-label text-center class="info"><ion-icon ios="ios-pin" md="md-pin"></ion-icon>{{company.address}}</ion-label>      
-    <div class="contato">  
-      <ion-label text-center class="info phone"><ion-icon ios="ios-call" md="md-call">  </ion-icon>{{company.phone}}</ion-label>
-      <ion-label text-center class="info contact"><ion-icon ios="ios-person" md="md-person">  </ion-icon>{{company.contact}}</ion-label>
-    </div>
-  </expandable-header>
+  <ion-navbar>
+    <ion-title>
+    {{company.name}}  
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content fullscreen #myContent padding class="inspection-list">
+
+ <ion-content [hidden]="inspectionList">
+    <ion-content class="sem-inspecao">
+      <img src="assets/icon/empresa.png"/>
+      <figcaption text-center><strong>Não há inspeções cadastradas</strong><br>
+        Use o botão de ‘Adicionar’ abaixo
+para cadastrar uma inspenção.</figcaption> 
+    </ion-content>
+  </ion-content>
+
+
   <ion-list>
     <ion-item-sliding *ngFor="let inspection of inspectionList; let idx = index;">
       <ion-item (click)="itemTapped($event, idx)">
         <ion-avatar item-left>
-          <img />
+          <ion-icon class="status" ios="ios-alert" md="md-alert"></ion-icon>
         </ion-avatar>
-        <h2>{{ inspection.name }}</h2>
         <h3>{{ inspection.created_at | date: 'medium'}}</h3>
+        <h2>{{ inspection.name }}</h2>        
+        <ion-icon class="seta-dir" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon> 
       </ion-item>
-      <ion-item-options>
+
+      <ion-item-options class="slide">
         <button class="btn-editar" (click)="edit(idx)">
           <ion-icon name="md-create"><br>Editar</ion-icon>
         </button>          
@@ -38,6 +45,6 @@
     </ion-item-sliding>
   </ion-list>
   <ion-fab bottom right>
-      <button ion-fab (click)="add()" color="salvar"><i class="ion-plus-round"></i></button>
+      <button ion-fab (click)="add()" color="salvar"><img src="assets/img/icon/add-plus-button.png"></button>
     </ion-fab>
 </ion-content>

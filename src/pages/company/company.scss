@@ -4,33 +4,65 @@ page-company{
 	padding-left: 5%;
 	padding-right: 5%;
  }
-
- #seta-dir{
-	float: right;
- }
-
+.seta-dir{
+	color: #344A4D;
+	float: right;	
+	font-size: 32px;
+	margin-top: -13%;
+}
  .confirma{
 	content: url(src/assets/icon/add.svg);
 }
-.sem-empresa{
+ion-searchbar{
+	width: 75%;
+	height: 2%;
+	border: #F2F2F2;
+
+}
+ion-buttons{
+	float: right;
+
+
+}
+.search{
+	background-color: #F2F2F2;
+	
+}
+.searchbar{
+	background-color: #F2F2F2;
+	
+}
+.filter{
+	background-color: #F2F2F2;
+}
+.icone-filtro{
+	font-size: 25px;
+	color: #344A4D;
+	width: 40px;
+	height: auto;	
+	background-color: #F2F2F2;
+}
+
+.sem-inspecao{
 	margin-top: 170px;
 }
-.sem-empresa img{
-	height: 100px;
-	width: 100px;
+.sem-inspecao img{
+	height: 62px;
+	width: 49px;
 	display: block;
     margin-left: auto;
     margin-right: auto
 
 }
 figcaption{	
-   	color: #354A4D;		
+   	color: #344A4D;		
 	font-size: 16px;	
-	font-weight: bold;
 	text-align: center;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 5px;
+	display: block;
+
 
 }
 .botao-editar{
@@ -40,5 +72,23 @@ figcaption{
 	width: 60px;
 }
 
-
+.add-btn{
+	width: 34px;
+	height: 34px;
 }
+.status{
+	font-size: 32px;
+	color: #D03001;
+}
+time{
+	font-size: 13px;
+	color: #9B9B9B;
+}
+}
+
+
+
+
+
+
+

@@ -1,4 +1,49 @@
 page-sync {
 
 background-color: red;
+
+.sincronizar{
+	width: 90%;
+    margin:auto;
+    display:block;
+    background-color: #fb913b;
 }
+figcaption{
+	color: #344A4D;		
+	font-size: 16px;	
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	display: block;
+}
+.sincronizar button{
+	padding-top: 15px;
+}
+.msg-sync{
+	margin-top: 25%;
+}
+.msg-sync img{
+	height: 62px;
+	width: 49px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    }
+.last-sync{
+	color: #344A4D;		
+	font-size: 16px;	
+	text-align: center;
+	display: block;
+	margin-bottom: 5%;
+
+}
+}
+.toast-success{
+  > div{
+    background-color:#73C11E !important;
+    color:white !important; 
+    text-align: center;
+  }}

@@ -1,0 +1,42 @@
+.modal-wrapper page-inspection-modal {
+    width: 80%;
+    height: 35%;
+    margin-top: 50%;
+    margin-left: 10%;
+	border: 1px solid #979797;
+
+    .rectangle {
+        height: 400%;
+        width: 100%;
+        background-color: #08A17D;
+        margin-bottom: 5px;
+    }
+    .title{
+        display: block;
+    }
+    .name{
+        font-size: 18;
+        font-family: Nunito;
+        height: 10%;
+        width: 90%;
+        
+    }
+    .cancel{
+        float: right;
+        height: 20px;
+    }
+    .align-center{
+        display: block;
+    }
+    .inspection{
+        margin-top: 30px;
+        margin-bottom: 30px;  
+    }
+    ion-footer button {
+        margin: 0 !important;
+        background-color: #08A17D;
+    }
+    ion-navbar {
+        background-color: black !important;
+    }
+}

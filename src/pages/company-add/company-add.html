@@ -15,7 +15,7 @@
 <ion-content class="company-add">
   <ion-list>
       <ion-label stacked>Nome da empresa</ion-label>
-      <ion-input type="text" name="nome" maxlength="10" placeholder="Adicionar nome da empresa" [(ngModel)]="companyItem.name"></ion-input>
+      <ion-input type="text" name="nome" maxlength="40" placeholder="Adicionar nome da empresa" [(ngModel)]="companyItem.name"></ion-input>
       <ion-label stacked>CNPJ</ion-label>
       <ion-input type="tel" name="cnpj" placeholder="Adicionar CNPJ" [brmasker]="{mask:'00.000.000/0000-00', len:18}" [(ngModel)]="companyItem.cnpj"></ion-input>
       <ion-label stacked>Endereço</ion-label>

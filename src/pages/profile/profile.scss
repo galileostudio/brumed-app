@@ -1,7 +1,19 @@
 page-profile {
 
     .img {
-        object-fit: cover
+		display: block;
+        object-fit: cover;
+		margin: auto;
     }
 
+	.perfil{
+		background-color: #F4F4F4;
+	}
+	.perfil-lista{
+		background-color: #F4F4F4;
+		color: #08A17D;
+		font-weight: bold;
+	}
+
 }
+

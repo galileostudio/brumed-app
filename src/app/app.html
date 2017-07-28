@@ -1,6 +1,6 @@
 <!--Material Design Menu-->
 <ion-menu [content]="content" id="menu-material">
-    <ion-content>
+    <ion-content class="back-menu">
       <div class="menu-header" menuClose (click)="openProfile()">
         <!--material-design-background-->
         <img class="user-avatar round" [src]="chosenPicture || placeholder" onerror="this.src='assets/img/placeholder.png'"
@@ -8,13 +8,22 @@
         <p class="name">Fulano de tal</p>
       </div>
       <ion-list no-lines>
-        <button class="lista" menuClose ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <button class="lista" menuClose ion-item detail-none  (click)="openHome()">
+        <img class="icone-pwr" src="assets/img/icon/home.png">
+        Início
+      </button>
+      <button class="lista" menuClose ion-item detail-none  (click)="openSync()">
+        <img class="icone-pwr" src="assets/img/icon/refresh-icon.png">
+        Sincronizar Dados
+      </button>
+      <button class="lista" menuClose ion-item detail-none  (click)="openAbout()">
+        <img class="icone-pwr" src="assets/img/icon/info.png">
+        Sobre
       </button>
       </ion-list>
     </ion-content>
     <ion-footer>
-      <button font="black" ion-item detail-none >Sair</button>
+      <button class="botao-sair" ion-item detail-none ><img class="icone-pwr" src="assets/img/icon/power.png">Sair</button>
     </ion-footer>
   </ion-menu>
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->

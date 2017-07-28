@@ -17,28 +17,15 @@ export class LoginPage {
 
   public loginForm: any;
   public backgroundImage = "assets/img/background/Bg.png";
+  //public validation: boolean;
   
 
   constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public app: App, private platform: Platform) {
     //this.menu.enable(false);
-        
-    platform.ready().then(() => {
-          // Okay, so the platform is ready and our plugins are available.
-          // Here you can do any higher level native things you might need
 
-          platform.registerBackButtonAction(() => {
-            if(this.menu.isOpen()){
-               this.menu.close()
-            } 
-            else if(this.navCtrl.canGoBack()){
-              this.doConfirm();
-              console.log("back apertado!");
-            }else{
-              //don't do anything
-            }
-          });
-        });
-
+}
+isValid(){
+  return true;
 }
 
   ionViewDidLoad() {
@@ -46,8 +33,11 @@ export class LoginPage {
   }
   login() {
     let loading = this.loadingCtrl.create({
-      duration: 500
+      content:'Entrando...',
+      duration: 500,
+      spinner: 'crescent'
     });
+    loading.present();
     this.navCtrl.pop();
 
     /*loading.onDidDismiss(() => {
@@ -58,37 +48,15 @@ export class LoginPage {
       });
       alert.present();
     }); */
-
-    loading.present();
-
   }
-
-  doConfirm() {
-    let alert = this.alertCtrl.create({
-      title: 'Sair?',
-      message: 'Você deseja mesmo sair do aplicativo?',
-      buttons: [
-        {
-          text: 'Não',
-          handler: () => {
-            console.log('Disagree clicked');
-          }
-        },
-        {
-          text: 'Sair',
-          handler: () => {
-            this.platform.exitApp();
-            console.log('Agree clicked');
-          }
-        }
-      ]
-    });
-
-    alert.present();
-  }
-
-  goToSignup() {
-    // this.navCtrl.push(SignupPage);
+  ionViewCanLeave(): boolean{
+   // here we can either return true or false
+   // depending on if we want to leave this view
+   if(this.isValid()== true){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   goToResetPassword() {
