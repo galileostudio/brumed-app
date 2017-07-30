@@ -34,6 +34,7 @@ export class OccurrenceAddPage {
   public chosenPicture: any;
 
   public regulation: any;
+  public decodedRegulation: string;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public actionsheetCtrl: ActionSheetController,
@@ -70,7 +71,8 @@ export class OccurrenceAddPage {
 
   ionViewDidLoad(){
     this.loadRegulation();
-    console.log(this.regulation);
+    this.decodedRegulation = JSON.stringify(this.regulation);
+    console.log("olha o JSON:  "+this.decodedRegulation);
   }
 
   save(){
