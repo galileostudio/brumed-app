@@ -1,4 +1,3 @@
-import { RegulationAddPage } from './../pages/regulation-add/regulation-add';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,8 +30,7 @@ export class MyApp {
     this.pages = [
       { title: 'Início', component: CompanyPage, icon: this.iconTest},
       { title: 'Sincronizar dados', component: SyncPage, icon: this.iconTest},
-      { title: 'Sobre', component: AboutPage, icon: this.iconTest},
-      { title: "NR's", component: RegulationAddPage, icon: this.iconTest}
+      { title: 'Sobre', component: AboutPage, icon: this.iconTest}
     ];
   }
 
@@ -61,8 +59,5 @@ export class MyApp {
   }
   openProfile(){
     this.nav.setRoot(ProfilePage);
-  }
-  openRegulation(){
-    this.nav.setRoot(RegulationAddPage);
   }
 }

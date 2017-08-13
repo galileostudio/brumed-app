@@ -3,23 +3,20 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
-  Generated class for the RegulationProvider provider.
+  Generated class for the InspectionProvider provider.
 
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class RegulationProvider {
-
-  public data: any;
+export class InspectionProvider {
 
   constructor(public http: Http) {
-    console.log('Hello RegulationProvider Provider');
+    console.log('Hello InspectionProvider Provider');
   }
 
   getJsonData(){
-    return this.http.get('http://localhost:3000/regulations.json');
+    return this.http.get('http://localhost:3000/inspections.json');
   }
-  
 
 }

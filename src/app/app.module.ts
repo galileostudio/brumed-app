@@ -1,9 +1,8 @@
-import { Http } from '@angular/http';
-import { RegulationAddPage } from './../pages/regulation-add/regulation-add';
 import { AppMaskerModule } from 'brmasker-ionic';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
@@ -25,7 +24,9 @@ import { Camera } from '@ionic-native/camera';
 import { CameraProvider } from '../providers/camera/camera.provider';
 import { ExpandableHeader } from '../components/expandable-header/expandable-header';
 import { RegulationProvider } from '../providers/regulation/regulation';
-import { HttpModule } from '@angular/http';
+import { CompanyProvider } from '../providers/company/company';
+import { InspectionProvider } from '../providers/inspection/inspection';
+import { OccurrenceProvider } from '../providers/occurrence/occurrence';
 
 
 @NgModule({
@@ -43,14 +44,13 @@ import { HttpModule } from '@angular/http';
     SyncPage,
     ProfilePage,
     ExpandableHeader,
-    InspectionModalPage,
-    RegulationAddPage
+    InspectionModalPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AppMaskerModule,
-    HttpModule
+    HttpModule    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,8 +66,7 @@ import { HttpModule } from '@angular/http';
     RecoverPwdPage,
     SyncPage,
     ProfilePage,
-    InspectionModalPage,
-    RegulationAddPage
+    InspectionModalPage
   ],
   providers: [
     StatusBar,
@@ -76,7 +75,10 @@ import { HttpModule } from '@angular/http';
     CameraProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CameraProvider,
-    RegulationProvider
+    RegulationProvider,
+    CompanyProvider,
+    InspectionProvider,
+    OccurrenceProvider
   ]
 })
 export class AppModule {}

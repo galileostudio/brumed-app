@@ -34,7 +34,6 @@ export class OccurrenceAddPage {
   public chosenPicture: any;
 
   public regulation: any;
-  public decodedRegulation: string;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public actionsheetCtrl: ActionSheetController,
@@ -70,9 +69,6 @@ export class OccurrenceAddPage {
   }
 
   ionViewDidLoad(){
-    this.loadRegulation();
-    this.decodedRegulation = JSON.stringify(this.regulation);
-    console.log("olha o JSON:  "+this.decodedRegulation);
   }
 
   save(){
@@ -99,12 +95,6 @@ export class OccurrenceAddPage {
     }
   }
 
-  loadRegulation(){
-    this.regulationProvider.load()
-    .then(data => {
-      this.regulation = data;
-    });
-}
   changePicture() {
 
     if(!this.edit){
