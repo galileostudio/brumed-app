@@ -2,11 +2,13 @@
   "name": "Brumed",
   "app_id": "",
   "type": "ionic-angular",
-
   "proxies": [
     {
-        "path": "/api",
-        "proxyUrl": "http://localhost"
+      "path": "/api",
+      "proxyUrl": "http://localhost"
     }
-]
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }
