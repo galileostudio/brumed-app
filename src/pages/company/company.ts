@@ -4,6 +4,7 @@ import { CompanyAddPage } from './../company-add/company-add';
 import { CompanyModel } from './../../models/company';
 import { Component, ViewChild } from '@angular/core';
 import {List, IonicPage,  NavController,  NavParams} from 'ionic-angular';
+import { CompanyService } from '../../domain/company/company-service';
 
 /**
  * Generated class for the CompanyPage page.
@@ -21,7 +22,11 @@ export class CompanyPage {
   public filterCompany:string;
   @ViewChild(List) list: List;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private _companyService: CompanyService
+  ) {
     this.companyList = [];
   }
 
@@ -30,10 +35,15 @@ export class CompanyPage {
   }
 
   private fullCompany(){
-    this.companyList = JSON.parse(localStorage.getItem("company"));
-    if(!this.companyList) {
-      this.companyList = [];
-    }
+    // this.companyList = JSON.parse(localStorage.getItem("company"));
+    this._companyService
+    .list()
+    .then(companies => {
+      console.log(companies);
+      this.companyList = companies ? companies : [];
+    })
+    .catch(err => console.log(err));
+
     return this.companyList;
   }
 
@@ -48,7 +58,7 @@ export class CompanyPage {
 
   edit(index: number){
     this.navCtrl.push(CompanyAddPage, {
-      index: index
+      company:  this.companyList[index]
     });
   }
 

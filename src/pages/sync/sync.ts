@@ -14,13 +14,19 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
 })
 export class SyncPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadCtrl: LoadingController, public toastCtrl: ToastController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public loadCtrl: LoadingController,
+    public toastCtrl: ToastController
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SyncPage');
   }
-  sync(){
+
+  sync() {
     let loading = this.loadCtrl.create({
       content: 'Sincronizando dados',
       duration: 700,
@@ -30,13 +36,14 @@ export class SyncPage {
     this.confirmationToast();
     console.log("hoje não");
   }
-    confirmationToast(){
+
+  confirmationToast() {
     let toast = this.toastCtrl.create({
-    message: `Os dados foram sincronizados com sucesso!`,
-    duration: 2000,
-    showCloseButton: false,
-    cssClass: "toast-success"
-  });
+      message: `Os dados foram sincronizados com sucesso!`,
+      duration: 2000,
+      showCloseButton: false,
+      cssClass: "toast-success"
+    });
     toast.present();
   }
 

@@ -23,6 +23,13 @@ import { Camera } from '@ionic-native/camera';
 import { CameraProvider } from '../providers/camera/camera.provider';
 import { ExpandableHeader } from '../components/expandable-header/expandable-header';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+import { UserService } from '../domain/user/user-service';
+import { HttpModule } from '@angular/http';
+import { CompanyService } from '../domain/company/company-service';
+import { InspectionService } from '../domain/inspection/inspection-service';
+import { OccurrenceService } from '../domain/occurrence/occurrence-service';
 
 @NgModule({
   declarations: [
@@ -44,7 +51,8 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AppMaskerModule
+    AppMaskerModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,7 +76,11 @@ import { ExpandableHeader } from '../components/expandable-header/expandable-hea
     Camera,
     CameraProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CameraProvider
+    CameraProvider,
+    UserService,
+    CompanyService,
+    InspectionService,
+    OccurrenceService
   ]
 })
 export class AppModule {}

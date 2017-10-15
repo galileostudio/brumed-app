@@ -4,6 +4,7 @@ import { OccurrencePage } from './../occurrence/occurrence';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { InspectionModel } from './../../models/inspection';
+import { InspectionService } from '../../domain/inspection/inspection-service';
 //import { InspectionAddPage } from './../inspection-add/inspection-add';
 
 /**
@@ -21,68 +22,98 @@ export class InspectionPage {
   public inspectionList: Array<InspectionModel>;
   public company: CompanyModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    private _inspectionService: InspectionService
+  ) {
     this.company = navParams.get("company");
   }
 
   ionViewDidLoad() {
-    if(JSON.parse(localStorage.getItem("inspection"))){
-      this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
-        inspection => inspection.company_id === this.company.id);
-        //console.log(this.company.address)
-    }
-    if(!this.inspectionList) {
-      this.inspectionList = [];
-    }
+    this.loadInspections();
+    // if (JSON.parse(localStorage.getItem("inspection"))) {
+    //   this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
+    //     inspection => inspection.company_id === this.company.id);
+    //   //console.log(this.company.address)
+    // }
+    // if (!this.inspectionList) {
+    //   this.inspectionList = [];
+    // }
   }
 
-  add(){
+
+
+  add() {
     console.log("antes de chamar");
     let myModal = this.modalCtrl.create(InspectionModalPage, {
       company_id: this.company.id
     });
     console.log("depois de chamar");
     myModal.onDidDismiss(() => {
-      if(JSON.parse(localStorage.getItem("inspection"))){
-      this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
-        inspection => inspection.company_id === this.company.id);
-      }
-      if(!this.inspectionList) {
-        this.inspectionList = [];
-      }
+      this.loadInspections();
+      // if (JSON.parse(localStorage.getItem("inspection"))) {
+      //   this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
+      //     inspection => inspection.company_id === this.company.id);
+      // }
+      // if (!this.inspectionList) {
+      //   this.inspectionList = [];
+      // }
     });
     myModal.present();
   }
 
-  edit(index: number){
-     let myModal = this.modalCtrl.create(InspectionModalPage, {
-      index: index,
+  edit(index: number) {
+    let myModal = this.modalCtrl.create(InspectionModalPage, {
+      inspection: this.inspectionList[index],
       company_id: this.company.id
     });
     myModal.onDidDismiss(() => {
-      if(JSON.parse(localStorage.getItem("inspection"))){
-      this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
-        inspection => inspection.company_id === this.company.id);
-      }
-      if(!this.inspectionList) {
-        this.inspectionList = [];
-      }
+      this.loadInspections();
+      // if (JSON.parse(localStorage.getItem("inspection"))) {
+      //   this.inspectionList = JSON.parse(localStorage.getItem("inspection")).filter(
+      //     inspection => inspection.company_id === this.company.id);
+      // }
+      // if (!this.inspectionList) {
+      //   this.inspectionList = [];
+      // }
     });
     myModal.present();
   }
 
-  delete(index: number){
-    this.inspectionList.splice(index, 1); 
-    localStorage.setItem("inspection", JSON.stringify(this.inspectionList)); 
+  delete(index: number) {
+    this._inspectionService
+      .delete(this.inspectionList[index])
+      .then(insp => {
+        console.log(insp);
+        this.inspectionList.splice(index, 1);
+      })
+      .catch(err => console.log(err));
+    // localStorage.setItem("inspection", JSON.stringify(this.inspectionList));
   }
-  itemTapped(event, idx:number){
+
+  itemTapped(event, idx: number) {
     this.navCtrl.push(OccurrencePage, {
       inspection_id: this.inspectionList[idx].id
     });
   }
 
-  back(){
+  back() {
     this.navCtrl.pop();
+  }
+
+  loadInspections() {
+    this._inspectionService
+      .list(this.company.id)
+      .then(insp => {
+        console.log(insp);
+        this.inspectionList = insp ? insp : [];
+      })
+      .catch(err => {
+        this.inspectionList = [];
+        console.log(err)
+      });
   }
 
 }

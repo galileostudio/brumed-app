@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, 
+import {
+  IonicPage,
   NavController,
-  NavParams, 
-  Platform, 
-  ActionSheetController, 
-  LoadingController } from 'ionic-angular';
+  NavParams,
+  Platform,
+  ActionSheetController,
+  LoadingController
+} from 'ionic-angular';
 import { OccurrenceModel } from './../../models/occurrence';
 import { CameraProvider } from './../../providers/camera/camera.provider';
+import { OccurrenceService } from '../../domain/occurrence/occurrence-service';
 
 /**
  * Generated class for the OccurrenceAddPage page.
@@ -20,77 +23,91 @@ import { CameraProvider } from './../../providers/camera/camera.provider';
   templateUrl: 'occurrence-add.html',
 })
 export class OccurrenceAddPage {
-  public occurrenceList: Array<OccurrenceModel>;
+  public occurrenceList: Array<OccurrenceModel> = [];
   public occurrenceItem: OccurrenceModel;
   public title: string;
   public saveOrEdit: boolean;
-  public index: number;
+  public index: any;
   public inspection_id: string;
   public edit: boolean;
-  
+
   public placeholder = 'assets/img/placeholder.png';
   public chosenPicture: any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public actionsheetCtrl: ActionSheetController,
-    public cameraProvider: CameraProvider, public platform: Platform, public loadingCtrl: LoadingController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public actionsheetCtrl: ActionSheetController,
+    public cameraProvider: CameraProvider,
+    public platform: Platform,
+    public loadingCtrl: LoadingController,
+    private _occurrenceService: OccurrenceService
+  ) {
     this.saveOrEdit = false;
     this.edit = false;
 
-    this.occurrenceList = JSON.parse(localStorage.getItem("occurrence"));
-    if(!this.occurrenceList) {
-      this.occurrenceList = [];
-    }
+    // this.occurrenceList = JSON.parse(localStorage.getItem("occurrence"));
+    // if(!this.occurrenceList) {
+    //   this.occurrenceList = [];
+    // }
 
-    this.index = navParams.get("index");
+    this.index = navParams.get("occurrence");
     this.inspection_id = navParams.get("inspection_id");
     this.edit = navParams.get("edit");
-    
+
     console.log(this.edit);
-    if(this.index != undefined) {
+    if (this.index != undefined) {
       this.title = "Editar";
-      this.occurrenceItem = this.occurrenceList[this.index];
+      this.occurrenceItem = this.index;
       this.saveOrEdit = true;
-      if(this.occurrenceItem.photo){
+      if (this.occurrenceItem.photo) {
         this.chosenPicture = this.occurrenceItem.photo;
         this.placeholder = this.occurrenceItem.photo;
       }
-    }else{
+    } else {
       this.title = "Adicionar";
       this.occurrenceItem = new OccurrenceModel;
     }
-    if(!this.edit){
+    if (!this.edit) {
       this.title = "";
     }
   }
 
-  save(){
-    if (this.occurrenceItem.description){
-      if(this.saveOrEdit){
+  save() {
+    if (this.occurrenceItem.description) {
+      if (this.saveOrEdit) {
         this.occurrenceItem.updated_at = Date.now().toString();
-        if(this.chosenPicture){
-          this.occurrenceItem.photo = this.chosenPicture;
-        }else{
-          this.occurrenceItem.photo
-        }
-        this.occurrenceList[this.index] = this.occurrenceItem;
-      }else{
+        this.occurrenceItem.photo = this.chosenPicture ? this.chosenPicture : '';
+        this._occurrenceService
+          .edit(this.occurrenceItem)
+          .then(resp => {
+            console.log(resp);
+            this.navCtrl.pop();
+          })
+          .catch(err => console.log(err));
+
+        // this.occurrenceList[this.index] = this.occurrenceItem;
+      } else {
         this.occurrenceItem.inspection_id = this.inspection_id;
-        if(this.chosenPicture){
-          this.occurrenceItem.photo = this.chosenPicture;
-        }else{
-          this.occurrenceItem.photo = ""
-        }
-        this.occurrenceList.push(this.occurrenceItem);
+        this.occurrenceItem.photo = this.chosenPicture ? this.chosenPicture : '';
+
+        this._occurrenceService
+          .add(this.occurrenceItem)
+          .then(resp => {
+            console.log(resp);
+            this.navCtrl.pop();
+          })
+          .catch(err => console.log(err));
+        // this.occurrenceList.push(this.occurrenceItem);
       }
-      localStorage.setItem("occurrence", JSON.stringify(this.occurrenceList));
-      this.navCtrl.pop();
+      // localStorage.setItem("occurrence", JSON.stringify(this.occurrenceList));
     }
   }
 
   changePicture() {
 
-    if(!this.edit){
+    if (!this.edit) {
       return;
     }
 
