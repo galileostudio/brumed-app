@@ -60,15 +60,15 @@ export class CompanyAddPage {
             this.navCtrl.pop();
             this.toastTestSim();
           })
-          .catch(err => console.log(err))
+          .catch(err => console.log(err.toString()))
       } else {
         this._companyService
-          .add(this.companyItem)
-          .then(comp => {
-            console.log(comp);
-            this.navCtrl.pop();
-            this.toastTestSim();
-          });
+          .add(this.companyItem);
+          // .then(comp => {
+          //   console.log(comp);
+             this.navCtrl.pop();
+             this.toastTestSim();
+          // });
         // this.companyList.push(this.companyItem);
       }
       // localStorage.setItem("company", JSON.stringify(this.companyList));
