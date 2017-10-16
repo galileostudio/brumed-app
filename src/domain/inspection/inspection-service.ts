@@ -10,8 +10,13 @@ export class InspectionService {
   constructor(private _http: Http) { }
 
   add(inspection: InspectionModel) {
+    let postParams = {
+      name: inspection.name,
+      company_id: inspection.company_id
+    }
+    console.log(JSON.stringify(postParams));
     return this._http
-      .post(`${this._apiUrl}/inspections.json`, inspection)
+      .post(`${this._apiUrl}/inspections.json`, postParams)
       .map(response => response.json())
       .toPromise();
   }
@@ -32,8 +37,12 @@ export class InspectionService {
   }
 
   edit(inspection: InspectionModel) {
+    let postParams = {
+      name: inspection.name,
+      company_id: inspection.company_id
+    }
     return this._http
-      .post(`${this._apiUrl}/inspections/${inspection.id}.json`, inspection)
+      .put(`${this._apiUrl}/inspections/${inspection.id}.json`, postParams)
       .map(response => response.json())
       .toPromise();
   }

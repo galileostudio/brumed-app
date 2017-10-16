@@ -10,8 +10,16 @@ export class OccurrenceService {
   constructor(private _http: Http) { }
 
   add(occurrence: OccurrenceModel) {
+    let postParams = {
+      description: occurrence.description,
+      severity: occurrence.severity,
+      todo: occurrence.due_time,
+      regulation_id: occurrence.nr_code,
+      inspection_id: occurrence.inspection_id
+    }
+    console.log(JSON.stringify(occurrence));
     return this._http
-      .post(`${this._apiUrl}/occurrences.json`, occurrence)
+      .post(`${this._apiUrl}/occurrences.json`, postParams)
       .map(response => response.json())
       .toPromise();
   }

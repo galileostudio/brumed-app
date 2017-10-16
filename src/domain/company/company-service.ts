@@ -60,7 +60,7 @@ export class CompanyService {
       contact: company.contact
     }
     return this._http
-      .post(`${this._apiUrl}/companies/${company.id}.json`,postParams)
+      .put(`${this._apiUrl}/companies/${company.id}.json`,postParams)
       .map(response => response.json())
       .toPromise();
   }
