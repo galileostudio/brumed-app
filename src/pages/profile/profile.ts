@@ -1,3 +1,4 @@
+import { UserService } from './../../domain/user/user-service';
 import { CameraProvider } from './../../providers/camera/camera.provider';
 import { ProfileModel } from './../../models/profile';
 import { Component } from '@angular/core';
@@ -16,7 +17,7 @@ import { IonicPage, NavController, NavParams, Platform, ActionSheetController, L
 })
 export class ProfilePage {
   public profile: Array<ProfileModel>;
-  public name: string;
+  public name: any;
   public identifier: string;
   public phone: string;
   public position: string;
@@ -25,18 +26,22 @@ export class ProfilePage {
   public chosenPicture: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public actionsheetCtrl: ActionSheetController,
-    public cameraProvider: CameraProvider, public platform: Platform, public loadingCtrl: LoadingController) {
-  }
+    public cameraProvider: CameraProvider, public platform: Platform, public loadingCtrl: LoadingController, _userService: UserService) {
+      
+      this.name = _userService.userLogged();
+      //this.identifier = Math.random().toString().substr(3-10); 
+      //this.phone = "123456789"
+      //this.position = "Vistoriador"
+  
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+
   }
 
   ionViewDidEnter(){
-    this.name = "Fulano";
-    this.identifier = Math.random().toString().substr(3-10); 
-    this.phone = "123456789"
-    this.position = "Vistoriador"
+    
   }
 
     changePicture() {

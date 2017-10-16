@@ -1,3 +1,6 @@
+import { LoginPage } from './../pages/login/login';
+import { UserService } from './../domain/user/user-service';
+import { User } from './../domain/user/user';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,7 +18,7 @@ import { ProfilePage } from './../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CompanyPage;
+  public rootPage: any = CompanyPage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
@@ -23,8 +26,22 @@ export class MyApp {
 
   iconTest = "assets/img/icon/power.png";
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  _loggedUser: any;
+
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, _userService: UserService) {
+
+    this.rootPage = _userService.isLogged() ?  CompanyPage : LoginPage;
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+
+      this._loggedUser = _userService.userLogged();
+
+    });
+    //this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -34,14 +51,9 @@ export class MyApp {
     ];
   }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
+  // initializeApp() {
+  //   this._loggedUser =  _userServices
+  // }
 
   openPage(page) {
     // Reset the content nav to have just this page
@@ -59,5 +71,9 @@ export class MyApp {
   }
   openProfile(){
     this.nav.setRoot(ProfilePage);
+  }
+  btnSair(){
+    localStorage.clear();
+    this.nav.setRoot(LoginPage);
   }
 }

@@ -47,14 +47,14 @@ export class CompanyPage {
     return this.companyList;
   }
 
-  ionViewDidLoad() {
-    var user = new Boolean;
-    user = true;
-    if(user = true){
-      this.navCtrl.push(LoginPage)
-    }
-    console.log('ionViewDidLoad CompanyPage');
-  }
+  // ionViewDidLoad() {
+  //   var user = new Boolean;
+  //   user = true;
+  //   if(user = true){
+  //     this.navCtrl.push(LoginPage)
+  //   }
+  //   console.log('ionViewDidLoad CompanyPage');
+  // }
 
   edit(index: number){
     this.navCtrl.push(CompanyAddPage, {

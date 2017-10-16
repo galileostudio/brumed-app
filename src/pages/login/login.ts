@@ -1,3 +1,5 @@
+import { MyApp } from './../../app/app.component';
+import { CompanyPage } from './../company/company';
 import { RecoverPwdPage } from './../recover-pwd/recover-pwd';
 import { Component } from '@angular/core';
 import { AlertController, App, LoadingController, IonicPage, NavController, NavParams, MenuController, Platform } from 'ionic-angular';
@@ -57,11 +59,17 @@ export class LoginPage {
       .then(user => {
         console.log(user);
         loading.dismiss();
-        this.navCtrl.pop();
+        this.navCtrl.setRoot(CompanyPage).catch(err =>{
+          console.log("Erro do pop:   "+err)
+        });
       })
       .catch(err => {
         console.log(err);
         loading.dismiss();
+        this.alertCtrl.create({
+          subTitle: 'Erro: ' + err.message,
+          buttons: [{ text: 'Ok' }]
+        }).present();
       });
 
 
@@ -74,15 +82,15 @@ export class LoginPage {
       alert.present();
     }); */
   }
-  ionViewCanLeave(): boolean {
-    // here we can either return true or false
-    // depending on if we want to leave this view
-    if (this.isValid() == true) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // ionViewCanLeave(): boolean {
+  //   // here we can either return true or false
+  //   // depending on if we want to leave this view
+  //   if (this.isValid() == true) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   goToResetPassword() {
     this.navCtrl.push(RecoverPwdPage);
